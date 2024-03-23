@@ -1,0 +1,178 @@
+@keyframes envelopeVibration {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  50% {
+    transform: translate(-50%, -50%) rotate(-2deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(2deg);
+  }
+}
+
+.letter-image {
+  z-index: 1000;
+  position: fixed;
+  /* Change from absolute to fixed */
+  bottom: 20px;
+  right: 20px;
+  width: 100px;
+  /*done*/
+  height: 100px;
+  /*done*/
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  animation: envelopeVibration 0.5s ease-in-out infinite alternate;
+}
+
+.letter-image:hover {
+  animation: none;
+  /* Stop the animation when hovering */
+}
+
+.letter-image .animated-mail {
+  position: absolute;
+  height: 75px;
+  /*done*/
+  width: 100px;
+  /*done*/
+  transition: .4s;
+}
+
+.letter-image .animated-mail .body {
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 50px 100px;
+  /*done*/
+  border-color: transparent transparent #43c5f8 transparent;
+  z-index: 2;
+}
+
+.letter-image .animated-mail .top-fold {
+  position: absolute;
+  top: 25px;
+  /*done*/
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 25px 50px 0 50px;
+  /*done*/
+  transform-origin: 50% 0%;
+  transition: transform .4s .4s, z-index .2s .4s;
+  border-color: #31b6eb transparent transparent transparent;
+  z-index: 2;
+}
+
+.letter-image .animated-mail .back-fold {
+  position: absolute;
+  bottom: 0;
+  width: 100px;
+  /*done*/
+  height: 50px;
+  /*done*/
+  background: linear-gradient(to right, #43c5f8, #31b6eb);
+  z-index: 0;
+}
+
+.letter-image .animated-mail .left-fold {
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 25px 0 25px 50px;
+  /*done*/
+  border-color: transparent transparent transparent #1aa5e1;
+  z-index: 2;
+}
+
+.letter-image .animated-mail .letter {
+  left: 10px;
+  bottom: 0px;
+  position: absolute;
+  width: 80px;
+  /*done*/
+  height: 30px;
+  /*done*/
+  background: white;
+  z-index: 1;
+  overflow: hidden;
+  transition: .4s .2s;
+}
+
+.letter-image .animated-mail .letter .letter-border {
+  height: 5px;
+  /*done*/
+  width: 100%;
+  background: repeating-linear-gradient(-45deg, #31b6ef, #31b6ef 8px, transparent 8px, transparent 18px);
+}
+
+.letter-image .animated-mail .letter .letter-title {
+  margin-top: 5px;
+  /*done*/
+  margin-left: 2.5px;
+  /*done*/
+  height: 5px;
+  /*done*/
+  width: 40%;
+  text-align: left;
+  color: #000000;
+  /* text inside */
+}
+
+.letter-image .animated-mail .letter .letter-context {
+  margin-top: 5px;
+  /*done*/
+  margin-left: 2.5px;
+  /*done*/
+  height: 5px;
+  /*done*/
+  width: 40%;
+  text-align: left;
+  color: #000000;
+  /* text inside */
+
+}
+
+.letter-image .animated-mail .letter .letter-stamp {
+  margin-top: 25px;
+  /*done*/
+  margin-left: 60px;
+  /*done*/
+  border-radius: 100%;
+  height: 15px;
+  /*done*/
+  width: 15px;
+  /*done*/
+  background: #31b6ef;
+}
+
+.letter-image .shadow {
+  display: none;
+  /* Remove shadow if not needed */
+}
+
+.letter-image:hover .animated-mail {
+  transform: translateY(30px);
+}
+
+.letter-image:hover .animated-mail .top-fold {
+  transition: transform .4s, z-index .2s;
+  transform: rotateX(180deg);
+  z-index: 0;
+}
+
+.letter-image:hover .animated-mail .letter {
+  height: 100px;
+  /*done*/
+}
+
+.letter-image:hover .shadow {
+  width: 125px;
+  /*done*/
+}
